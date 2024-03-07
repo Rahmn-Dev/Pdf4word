@@ -20,7 +20,7 @@ def upload_file(request):
                 return HttpResponse(str(e), status=500)
     else:
         form = DocumentForm()
-    return render(request, 'upload.html', {'form': form})
+    return render(request, 'index.html', {'form': form})
 
 def converted_document(request, pk):
     document = Document.objects.get(pk=pk)
