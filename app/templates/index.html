@@ -29,6 +29,14 @@ https://cdn.jsdelivr.net/npm/kursor@0.1.6/dist/kursor.min.css
         #file-label{
             cursor: pointer;
         }
+        @font-face {
+            font-family: 'Doky';
+            src: url('https://firebasestorage.googleapis.com/v0/b/dark-star-412314.appspot.com/o/Doky.otf?alt=media&token=fe1fb447-1069-4859-a09f-6617e22563a1')
+          }
+        @font-face {
+            font-family: 'GLAMORA';
+            src: url('https://firebasestorage.googleapis.com/v0/b/dark-star-412314.appspot.com/o/Glamora.otf?alt=media&token=e7a2b9ee-4645-4f53-8e9a-6180efc1f619')
+          }
     </style>
 </head>
 <body>
@@ -36,7 +44,7 @@ https://cdn.jsdelivr.net/npm/kursor@0.1.6/dist/kursor.min.css
         <header class="blog-header py-3">
             <div class="row flex-nowrap justify-content-between align-items-center">
               <div class="col-4 pt-1">
-                <a href="https://www.rahmn.asia">
+                <a href="https://www.rahmn.asia" style="text-decoration:none;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="87" height="49" viewBox="0 0 87 49">
                     <text id="Rahmn" transform="translate(0 29)" font-size="30" font-family="GLAMORA"><tspan x="0" y="0">Rahmn</tspan></text>
                   </svg>
@@ -85,7 +93,19 @@ https://cdn.jsdelivr.net/npm/kursor@0.1.6/dist/kursor.min.css
             border-color: black;
             background-color: #D2D2D2;
             /* border: 2px solid black; */
-        "><span>{{form.pdf_file.path}}</span> <strong><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg> Choose a file…</strong></label>
+        "><span>{{form.pdf_file.path}}</span> <strong style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: nowrap;
+        flex-direction: row;
+    "><lord-icon
+            src="https://cdn.lordicon.com/fowixcuo.json"
+            trigger="hover"
+            target="#file-label"
+            style="width:25px;height:25px">
+        </lord-icon> Choose a file…</strong></label>
         </div>
         </div>
             <div class="col col-12" style="
@@ -96,7 +116,19 @@ https://cdn.jsdelivr.net/npm/kursor@0.1.6/dist/kursor.min.css
             flex-wrap: nowrap;
             flex-direction: row;
             margin-bottom:50px;
-        "> <button class="btn startbtn"  type="submit">Start Convert</button></div>
+        "> <button class="btn startbtn"  type="submit" style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-wrap: nowrap;
+    "> <lord-icon
+    src="https://cdn.lordicon.com/pyzlgcfb.json"
+    trigger="hover"
+    target=".startbtn"
+    stroke="bold"
+    style="width:25px;height:25px" colors="primary:#109121,secondary:#ffffff">
+</lord-icon> Start</button></div>
             
            
         </form>
@@ -113,6 +145,8 @@ https://cdn.jsdelivr.net/npm/kursor@0.1.6/dist/kursor.min.css
     <script src="
 https://cdn.jsdelivr.net/npm/kursor@0.1.6/dist/kursor.min.js
 "></script>
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js" integrity="sha512-aNMyYYxdIxIaot0Y1/PLuEu3eipGCmsEUBrUq+7aVyPGMFH8z0eTP0tkqAvv34fzN6z+201d3T8HPb1svWSKHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <script>
         {% comment %} new kursor({
@@ -121,9 +155,9 @@ https://cdn.jsdelivr.net/npm/kursor@0.1.6/dist/kursor.min.js
         }) {% endcomment %}
         document.getElementById('file-7').addEventListener('change', function(event) {
             var fileName = event.target.files[0].name;
-            var firstName = fileName.split(' ')[0]; // Get the first name
-            var lastName = fileName.split(' ').pop(); // Get the last name
-            var shortenedName = firstName ; // Combine first and last name
+            var firstName = fileName.split(' ')[0]; 
+            var lastName = fileName.split(' ').pop(); 
+                        var shortenedName = firstName ; 
             document.getElementById('file-label').innerHTML = '<span>' + shortenedName + '</span> <strong><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg> Choose a file…</strong>';
         });
     </script>
