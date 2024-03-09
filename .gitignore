@@ -61,7 +61,8 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 w2pdf/settings.py
-
+words/
+pdfs/
 # Flask stuff:
 instance/
 .webassets-cache
