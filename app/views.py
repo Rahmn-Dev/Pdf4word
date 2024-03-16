@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .forms import DocumentForm
 from .models import Document
 from .utils import convert_pdf_to_word
@@ -14,7 +14,7 @@ def upload_file(request):
                 converted_file_path = convert_pdf_to_word(document.pdf_file.path, document.pk)
                 document.word_file = converted_file_path
                 document.save()  # Save again with word_file updated
-                return redirect('converted_document', pk=document.pk)
+                return redirect('converted_document', id=document.pk)
             except ValueError as e:
                 # Handle the case where the converted file path is too long
                 return HttpResponse(str(e), status=500)

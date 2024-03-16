@@ -8,6 +8,7 @@ django = "*"
 psycopg2 = "*"
 pdf2docx = "*"
 django-widget-tweaks = "*"
+uuid = "*"
 
 [dev-packages]
 
