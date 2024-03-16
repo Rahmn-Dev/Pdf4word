@@ -28,4 +28,5 @@ jobs:
         cd .. || pip install -r requirements.txt
     - name: Run Tests
       run: |
+        pipenv shell
         python manage.py test
