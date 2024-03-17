@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 from .forms import DocumentForm
 from .models import Document
-from .utils import convert_pdf_to_word, convert_pdf_to_pptx
+from .utils import convert_pdf_to_word, convert_pdf_to_pptx, convert_pdf_to_image, create_zip_file
 import os
 
 def upload_file(request):
@@ -18,6 +18,14 @@ def upload_file(request):
                 pptx_file_path = convert_pdf_to_pptx(document.pdf_file.path, document.pk)
                 document.pptx_file = pptx_file_path
                 document.save()
+
+                image_file_paths = convert_pdf_to_image(document.pdf_file.path, document.pk)
+                filename = os.path.splitext(os.path.basename(document.pdf_file.name))[0]
+                zip_file_path =  f'images/{filename}.zip'
+                create_zip_file(image_file_paths, zip_file_path)
+                document.image_file = zip_file_path
+                document.save()
+
                 return redirect('converted_document', pk=document.pk)
             except ValueError as e:
                 # Handle the case where the converted file path is too long

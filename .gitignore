@@ -63,6 +63,8 @@ db.sqlite3-journal
 w2pdf/settings.py
 words/
 pdfs/
+pptx/
+images/
 # Flask stuff:
 instance/
 .webassets-cache
